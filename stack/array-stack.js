@@ -1,4 +1,4 @@
-class Stack {
+export class Stack {
   #items = [];
   push(element) {
     this.#items.push(element);
