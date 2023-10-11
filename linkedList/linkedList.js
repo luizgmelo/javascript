@@ -1,4 +1,4 @@
-import { Node } from './linked-list-models.js';
+import { DoublyNode, Node } from './linked-list-models.js';
 
 export default class LinkedList {
   constructor() {
@@ -108,3 +108,71 @@ const linkedList = new LinkedList();
 linkedList.push(15);
 linkedList.push(10);
 
+class DoublyLinkedList extends LinkedList {
+  constructor() {
+    super();
+    this.tail = undefined;
+  }
+  insert(element, index) {
+    if (index >= 0 && index <= this.count) {
+      const node = new DoublyNode(element);
+      let current = this.head;
+      if (index === 0) {
+        if (this.head == null) {
+          this.head = node;
+          this.tail = node;
+        } else {
+          node.next = self.head;
+          current.prev = node;
+          this.head = node;
+        }
+      } else if (index === this.count) {
+        current = this.tail;
+        current.next = node;
+        node.prev = current;
+        this.tail = node;
+      } else {
+        const previous = this.getElementAt(index - 1);
+        const current = previous.next;
+        node.next = current;
+        previous.next = node;
+        current.prev = node;
+        node.prev = previous;
+      }
+      this.count++;
+      return true;
+    }
+    return false;
+  }
+  removeAt(index) {
+    if (index >= 0 && index < this.count) {
+      let current = this.head;
+      if (index === 0) {
+        this.head = current.next;
+        if (this.count === 1) {
+          this.tail = undefined;
+        } else {
+          this.head.prev = undefined;
+        }
+      } else if (index === this.count - 1) {
+        current = this.tail;
+        this.tail = current.prev;
+        this.tail.next = undefined;
+      } else {
+        current = this.getElementAt(index);
+        const previous = current.prev;
+        previous.next = current.next;
+        current.next.prev = previous;
+      }
+      this.count--;
+      return current.element;
+    }
+    return undefined;
+  }
+}
+
+const doublyLinkedList = new DoublyLinkedList();
+doublyLinkedList.insert(1, 0);
+doublyLinkedList.insert(2, 1);
+doublyLinkedList.insert(3, 2);
+doublyLinkedList.removeAt(1);
