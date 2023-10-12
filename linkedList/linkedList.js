@@ -176,3 +176,62 @@ doublyLinkedList.insert(1, 0);
 doublyLinkedList.insert(2, 1);
 doublyLinkedList.insert(3, 2);
 doublyLinkedList.removeAt(1);
+
+class CircularLinkedList extends LinkedList {
+  constructor() {
+    super()
+  }
+  insert(element, index) {
+    const node = new Node(element);
+    if (index >= 0 && index <= this.count) {
+      if (index === 0) {
+        if (this.head == null) {
+          this.head = node;
+          node.next = this.head;
+        } else {
+          node.next = this.head;
+          this.head = node;
+          current = this.getElementAt(this.size());
+          current.next = this.head;
+        }
+      } else {
+        const previous = this.getElementAt(index - 1);
+        node.next = previous.next;
+        previous.next = node;
+      }
+      this.count++;
+      return true;
+    }
+    return false;
+  }
+  removeAt(index) {
+    if (index >= 0 && index <= this.count) {
+      let current = this.head;
+      if (index === 0) {
+        if (this.size() === 1) {
+          this.head = undefined;
+        } else {
+          const removed = this.head;
+          current = this.getElementAt(this.size()-1); // take last element 
+          this.head = this.head.next; // jump head and forget
+          current.next = this.head; // the last.next is the new head
+          current = removed; // current now is delete item for be return
+        }
+      } else {
+        const previous = this.getElementAt(index - 1);
+        current = previous.next;
+        previous.next = current.next;
+      }
+      this.count--;
+      return current.element;
+    }
+    return undefined;
+  }
+}
+
+const circularLinkedList = new CircularLinkedList();
+circularLinkedList.insert(12, 0)
+circularLinkedList.insert(13, 1)
+circularLinkedList.insert(14, 2)
+circularLinkedList.removeAt(2);
+console.log(circularLinkedList.head)
