@@ -108,7 +108,7 @@ const linkedList = new LinkedList();
 linkedList.push(15);
 linkedList.push(10);
 
-class DoublyLinkedList extends LinkedList {
+export class DoublyLinkedList extends LinkedList {
   constructor() {
     super();
     this.tail = undefined;
@@ -230,8 +230,7 @@ class CircularLinkedList extends LinkedList {
 }
 
 const circularLinkedList = new CircularLinkedList();
-circularLinkedList.insert(12, 0)
-circularLinkedList.insert(13, 1)
-circularLinkedList.insert(14, 2)
-circularLinkedList.removeAt(2);
-console.log(circularLinkedList.head)
+// circularLinkedList.insert(12, 0)
+// circularLinkedList.insert(13, 1)
+// circularLinkedList.insert(14, 2)
+// circularLinkedList.removeAt(2);
