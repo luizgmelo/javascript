@@ -47,6 +47,9 @@ class HashTable {
     }
     return false;
   }
+  size() {
+    return Object.keys(this.table).length
+  }
 }
 
 const hash = new HashTable();
