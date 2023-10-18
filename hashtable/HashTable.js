@@ -70,13 +70,12 @@ class HashTable {
 }
 
 const hash = new HashTable();
-hash.put('Gandalf', 'gandalf@email.com');
-hash.put('John', 'john@email.com');
-hash.put('Tyrion', 'tyrion@email.com');
-console.log(hash.hashCode('Gandalf') + ' - Gandalf');
-console.log(hash.hashCode('John') + ' -  John');
-console.log(hash.hashCode('Tyron') + ' - Tyron');
-console.log(hash.get('Gandalf'));
-console.log(hash.get('Loiane'));
-hash.remove('Gandalf');
-console.log(hash.get('Gandalf'));
+hash.put('Nathan', 'nathan@email.com');
+hash.put('Sargeras', 'sargeras@email.com');
+hash.put('Abreu', 'abreu@email.com');
+//  collision hash
+console.log(hash.hashCode('Nathan')); // 10
+console.log(hash.hashCode('Sargeras')); // 10
+console.log(hash.toString());
+console.log(hash.isEmpty());
+console.log(hash.size()); 
