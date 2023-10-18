@@ -50,6 +50,9 @@ class HashTable {
   size() {
     return Object.keys(this.table).length
   }
+  isEmpty() {
+    return this.size() === 0;
+  }
 }
 
 const hash = new HashTable();
