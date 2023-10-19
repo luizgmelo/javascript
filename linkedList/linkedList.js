@@ -97,10 +97,7 @@ export default class LinkedList {
     return string;
   }
   getHead() {
-    if (this.head == null) {
-      return undefined;
-    }
-    return this.head.element;
+    return this.head;
   }
 }
 
