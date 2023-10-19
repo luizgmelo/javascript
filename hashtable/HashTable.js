@@ -69,13 +69,15 @@ class HashTable {
   }
 }
 
+export { HashTable, ValuePair }
+
 const hash = new HashTable();
 hash.put('Nathan', 'nathan@email.com');
 hash.put('Sargeras', 'sargeras@email.com');
 hash.put('Abreu', 'abreu@email.com');
 //  collision hash
-console.log(hash.hashCode('Nathan')); // 10
-console.log(hash.hashCode('Sargeras')); // 10
-console.log(hash.toString());
-console.log(hash.isEmpty());
-console.log(hash.size()); 
+// console.log(hash.hashCode('Nathan')); // 10
+// console.log(hash.hashCode('Sargeras')); // 10
+// console.log(hash.toString());
+// console.log(hash.isEmpty());
+// console.log(hash.size()); 
