@@ -10,4 +10,4 @@ function defaultCompare(a, b) {
   return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN
 }
 
-export { defaultCompare }
+export { Compare, defaultCompare }
