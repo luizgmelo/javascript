@@ -29,6 +29,16 @@ export default class BinarySearchTree {
       }
     }
   }
+  inOrderTraverse(callback) {
+    this.inOrderTraverseNode(this.root, callback);
+  }
+  inOrderTraverseNode(node, callback) {
+    if (node != null) {
+      this.inOrderTraverseNode(node.left, callback);
+      callback(node.key);
+      this.inOrderTraverseNode(node.right, callback);
+    }
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -48,3 +58,5 @@ tree.insert(18);
 tree.insert(25);
 tree.insert(6);
 
+const printNode = (value) => console.log(value);
+tree.inOrderTraverse(printNode);
