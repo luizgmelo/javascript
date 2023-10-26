@@ -59,6 +59,16 @@ export default class BinarySearchTree {
       callback(node.key);
     }
   }
+  min() {
+    return this.minNode(this.root);
+  }
+  minNode(node) {
+    let current = node;
+    while (current != null && current.left != null) {
+      current = current.left;
+    }
+    return current;
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -80,3 +90,4 @@ tree.insert(6);
 
 const printNode = (value) => console.log(value);
 tree.preOrderTraverse(printNode);
+console.log(tree.min());
