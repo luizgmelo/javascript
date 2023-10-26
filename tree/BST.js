@@ -69,6 +69,16 @@ export default class BinarySearchTree {
     }
     return current;
   }
+  max() {
+    return this.maxNode(this.root);
+  }
+  maxNode(node) {
+    let current = node;
+    while (current != null && current.right != null) {
+      current = current.right;
+    }
+    return current;
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -91,3 +101,4 @@ tree.insert(6);
 const printNode = (value) => console.log(value);
 tree.preOrderTraverse(printNode);
 console.log(tree.min());
+console.log(tree.max());
