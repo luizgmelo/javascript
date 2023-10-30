@@ -253,6 +253,46 @@ class AVLTree extends BinarySearchTree {
     }
     return node;
   }
+  removeNode(node, key) {
+    node = super.removeNode(node, key);
+    if (node == null) {
+      return node;
+    } 
+    const balanceFactor = this.getBalanceFactor(node);
+    if (balanceFactor === BalanceFactor.UNBALANCED_LEFT) {
+      const balanceFactorLeft = this.getBalanceFactor(node.left);
+      if (
+        balanceFactorLeft === BalanceFactor.BALANCED ||
+        balanceFactorLeft === BalanceFactor.SLIGHTLY_UNBALANCED_LEFT
+      ) {
+        return this.rotationLL(node);
+      }
+      if (balanceFactorLeft === balanceFactorLeft.SLIGHTLY_UNBALANCED_RIGHT) {
+        const balanceFactorRight = this.getBalanceFactor(node.right);
+        if (
+          balanceFactorRight === BalanceFactor.BALANCED ||
+          balanceFactorRight === BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT
+        ) {
+          return this.rotationRR(node);
+        }
+      }
+    }
+    if (balanceFactor === BalanceFactor.UNBALANCED_RIGHT) {
+      const balanceFactorRight = this.getBalanceFactor(node.right);
+      if (
+        balanceFactorRight === BalanceFactor.BALANCED ||
+        balanceFactorRight === BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT
+      ) {
+        return this.rotationRR(node);
+      }
+      if (
+        balanceFactorRight === BalanceFactor.SLIGHTLY_UNBALANCED_LEFT
+      ) {
+        return this.rotationRL(node.right);
+      }
+    }
+    return node;
+  }
 }
 
 console.log("AVL")
