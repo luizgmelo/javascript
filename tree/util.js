@@ -10,4 +10,10 @@ function defaultCompare(a, b) {
   return a < b ? Compare.LESS_THAN : Compare.BIGGER_THAN
 }
 
-export { Compare, defaultCompare }
+function swap(array, a, b) {
+  const temp = array[a];
+  array[a] = array[b];
+  array[b] = temp;
+}
+
+export { Compare, defaultCompare, swap }
