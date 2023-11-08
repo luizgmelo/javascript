@@ -45,6 +45,39 @@ export class MinHeap {
   findMinimum() {
     return this.isEmpty() ? undefined : this.heap[0];
   }
+  extract() {
+    if (this.isEmpty()) {
+      return undefined;
+    }
+    if (this.size() === 1) {
+      return this.heap.shift();
+    }
+    const removedValue = this.heap.shift();
+    this.siftDown(0);
+    return removedValue;
+  }
+  siftDown(index) {
+    let element = index;
+    const left = this.getLeftIndex(index);
+    const right = this.getRightIndex(index);
+    const size = this.size();
+    if (
+      left < size &&
+      this.compareFn(this.heap[element], this.heap[left] === Compare.BIGGER_THAN)
+    ) {
+      element = left;
+    }
+    if (
+      right < size &&
+      this.compareFn(this.heap[element], this.heap[right] === Compare.BIGGER_THAN)
+    ) {
+      element = right;
+    }
+    if (index !== element) {
+      swap(this.heap, index, element);
+      this.siftDown(element);
+    }
+  }
 }
 
 const heap = new MinHeap();
@@ -57,6 +90,7 @@ heap.insert(1);
 console.log('Heap size: ', heap.size());
 console.log('Heap is empty: ', heap.isEmpty());
 console.log('Heap min value: ', heap.findMinimum());
-console.log('Heap max value: ', heap.heap);
+console.log('Extract minimum: ', heap.extract());
+console.log('Heap: ', heap.heap);
 
 
