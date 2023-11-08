@@ -36,6 +36,15 @@ export class MinHeap {
       parent = this.getParentIndex(index);
     }
   }
+  size() {
+    return this.heap.length;
+  }
+  isEmpty() {
+    return this.size() == 0;
+  }
+  findMinimum() {
+    return this.isEmpty() ? undefined : this.heap[0];
+  }
 }
 
 const heap = new MinHeap();
@@ -44,5 +53,10 @@ heap.insert(3);
 heap.insert(4);
 heap.insert(5);
 heap.insert(1);
+
+console.log('Heap size: ', heap.size());
+console.log('Heap is empty: ', heap.isEmpty());
+console.log('Heap min value: ', heap.findMinimum());
+console.log('Heap max value: ', heap.heap);
 
 
