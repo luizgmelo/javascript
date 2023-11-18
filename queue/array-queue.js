@@ -1,10 +1,10 @@
-class Queue {
+export default class Queue {
   #items = [];
   enqueue(element) {
     this.#items.push(element);
   }
   dequeue() {
-    this.#items.shift();
+    return this.#items.shift();
   }
   size() {
     return this.#items.length;
@@ -24,15 +24,15 @@ class Queue {
 }
 
 const queue = new Queue();
-console.log(queue.isEmpty());
-queue.enqueue('John');
-queue.enqueue('Jack');
-console.log(queue.toString());
-queue.enqueue('Camila');
-console.log(queue.toString());
-console.log(queue.size());
-console.log(queue.isEmpty());
-queue.dequeue();
-queue.dequeue();
-console.log(queue.toString());
+// console.log(queue.isEmpty());
+// queue.enqueue('John');
+// queue.enqueue('Jack');
+// console.log(queue.toString());
+// queue.enqueue('Camila');
+// console.log(queue.toString());
+// console.log(queue.size());
+// console.log(queue.isEmpty());
+// queue.dequeue();
+// queue.dequeue();
+// console.log(queue.toString());
 
