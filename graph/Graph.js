@@ -1,4 +1,5 @@
 import Dictionary from "../dictionary/Dictionary.js";
+import { breadthFirstSearch } from "../algorithms/BFS.js"
 
 class Graph {
   constructor(isDirected = false) {
@@ -61,5 +62,5 @@ graph.addEdge('B', 'F');
 graph.addEdge('E', 'I');
 console.log("===GRAPH===");
 console.log(graph.toString());
-
-
+const printVertex = value => console.log('Visited vertex: ' + value);
+breadthFirstSearch(graph, myVertices[0], printVertex);
