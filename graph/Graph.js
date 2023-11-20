@@ -86,4 +86,4 @@ for (let i = 1; i < myVertices.length; i++) {
   console.log(s);
 }
 console.log("===DFS===")
-depthFirstSearch(graph, printVertex);
+console.log(depthFirstSearch(graph, printVertex));
