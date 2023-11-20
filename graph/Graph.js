@@ -1,7 +1,8 @@
 import Dictionary from "../dictionary/Dictionary.js";
-import { Stack } from "../stack/array-stack.js"
-import { breadthFirstSearch } from "../algorithms/BFS.js"
-import { BFS } from "../algorithms/BFS-shortpath.js"
+import { Stack } from "../stack/array-stack.js";
+import { breadthFirstSearch } from "../algorithms/BFS.js";
+import { BFS } from "../algorithms/BFS-shortpath.js";
+import { depthFirstSearch } from "../algorithms/DFS.js";
 
 class Graph {
   constructor(isDirected = false) {
@@ -84,3 +85,5 @@ for (let i = 1; i < myVertices.length; i++) {
   }
   console.log(s);
 }
+console.log("===DFS===")
+depthFirstSearch(graph, printVertex);
