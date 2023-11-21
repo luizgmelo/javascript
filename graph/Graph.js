@@ -4,7 +4,7 @@ import { breadthFirstSearch } from "../algorithms/BFS.js";
 import { BFS } from "../algorithms/BFS-shortpath.js";
 import { depthFirstSearch } from "../algorithms/DFS.js";
 
-class Graph {
+export class Graph {
   constructor(isDirected = false) {
     this.isDirected = isDirected;
     this.vertices = [];
