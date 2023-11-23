@@ -3,6 +3,7 @@ import { Stack } from "../stack/array-stack.js";
 import { breadthFirstSearch } from "../algorithms/BFS.js";
 import { BFS } from "../algorithms/BFS-shortpath.js";
 import { depthFirstSearch } from "../algorithms/DFS.js";
+import { dijkstra } from "../algorithms/dijkstra.js"
 
 export class Graph {
   constructor(isDirected = false) {
@@ -87,3 +88,15 @@ for (let i = 1; i < myVertices.length; i++) {
 }
 console.log("===DFS===")
 console.log(depthFirstSearch(graph, printVertex));
+console.log("==Dijkstra===")
+let graph_matrix = [[0, 2, 4, 0, 0, 0],
+                    [0, 0, 2, 4, 2, 0],
+                    [0, 0, 0, 0, 3, 0],
+                    [0, 0, 0, 0, 0, 2],
+                    [0, 0, 0, 3, 0, 2],
+                    [0, 0, 0, 0, 0, 0],
+                   ]
+const dist = dijkstra(graph_matrix, 0)
+for (let i = 0; i < dist.length; i++) {
+  console.log(`${i} ${dist[i]}`)
+}
