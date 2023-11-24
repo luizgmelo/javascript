@@ -4,6 +4,7 @@ import { breadthFirstSearch } from "../algorithms/BFS.js";
 import { BFS } from "../algorithms/BFS-shortpath.js";
 import { depthFirstSearch } from "../algorithms/DFS.js";
 import { dijkstra } from "../algorithms/dijkstra.js"
+import { floydWarshall } from "../algorithms/floyd-warshall.js";
 
 export class Graph {
   constructor(isDirected = false) {
@@ -96,7 +97,28 @@ let graph_matrix = [[0, 2, 4, 0, 0, 0],
                     [0, 0, 0, 3, 0, 2],
                     [0, 0, 0, 0, 0, 0],
                    ]
-const dist = dijkstra(graph_matrix, 0)
+let dist = dijkstra(graph_matrix, 0)
 for (let i = 0; i < dist.length; i++) {
   console.log(`${i} ${dist[i]}`)
+}
+console.log("==Floyd-Warshall===")
+const INF = Infinity
+const graph_matrix2 = [
+  [INF, 2, 4, INF, INF, INF],
+  [INF, INF, 2, 4, 2, INF],
+  [INF, INF, INF, INF, 3, INF],
+  [INF, INF, INF, INF, INF, 2],
+  [INF, INF, INF, 3, INF, 2],
+  [INF, INF, INF, INF, INF, INF]
+];
+
+dist = floydWarshall(graph_matrix2)
+let s = ''
+for (let i = 0; i < dist.length; i++) {
+  s = '';
+  for (var j = 0; j < dist.length; ++j) {
+    if (dist[i][j] === INF) s += 'INF ';
+    else s += dist[i][j] + '   ';
+  }
+  console.log(s);
 }
