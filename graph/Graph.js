@@ -5,6 +5,7 @@ import { BFS } from "../algorithms/BFS-shortpath.js";
 import { depthFirstSearch } from "../algorithms/DFS.js";
 import { dijkstra } from "../algorithms/dijkstra.js"
 import { floydWarshall } from "../algorithms/floyd-warshall.js";
+import { prim } from "../algorithms/prim.js";
 
 export class Graph {
   constructor(isDirected = false) {
@@ -121,4 +122,20 @@ for (let i = 0; i < dist.length; i++) {
     else s += dist[i][j] + '   ';
   }
   console.log(s);
+}
+
+let graph_matrix3 = [
+  [0, 2, 4, 0, 0, 0],
+  [2, 0, 2, 4, 2, 0],
+  [4, 2, 0, 0, 3, 0],
+  [0, 4, 0, 0, 3, 2],
+  [0, 2, 3, 3, 0, 2],
+  [0, 0, 0, 2, 2, 0]
+]
+
+console.log("==Prim's Algorithm - Minimum Spanning Tree===")
+let parent = prim(graph_matrix3)
+console.log("Edge   Weight")
+for (let i = 1; i < graph_matrix3.length; i++) {
+  console.log(parent[i] + ' - ' + i + '   ' + graph_matrix3[i][parent[i]])
 }
