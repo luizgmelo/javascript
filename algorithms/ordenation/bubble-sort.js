@@ -1,16 +1,4 @@
-const Compare = {
-  BIGGER_THAN: 1,
-  LOWER_THAN:-1
-}
-
-function defaultCompare(a, b) {
-  if (a < b) return -1;
-  else return 1;
-}
-
-function swap(array, a, b) {
-  [array[a], array[b]] = [array[b], array[a]];
-}
+import { defaultCompare, Compare, swap } from "./util.js";
 
 export function bubbleSort(array, compareFn = defaultCompare) {
   const { length } = array;

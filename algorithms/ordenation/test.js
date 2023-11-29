@@ -1,4 +1,5 @@
-import { bubbleSort } from './bubble-sort.js'
+import { bubbleSort } from './bubble-sort.js';
+import { selectionSort } from './selection-sort.js';
 
 function createNonSortedArray(size) {
   const array = [];
@@ -7,7 +8,9 @@ function createNonSortedArray(size) {
   }
   return array;
 }
+
 let array = createNonSortedArray(5);
 console.log(array.join());
-array = bubbleSort(array);
+array = selectionSort(array);
 console.log(array.join());
+
