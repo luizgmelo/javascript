@@ -2,6 +2,7 @@ import { bubbleSort } from './bubble-sort.js';
 import { selectionSort } from './selection-sort.js';
 import { insertionSort } from './insertion-sort.js';
 import { mergeSort } from './merge-sort.js';
+import { quickSort } from './quick-sort.js';
 
 function createNonSortedArray(size) {
   const array = [];
@@ -13,6 +14,6 @@ function createNonSortedArray(size) {
 
 let array = createNonSortedArray(5);
 console.log(array.join());
-array = mergeSort(array);
+array = quickSort(array);
 console.log(array.join());
 
