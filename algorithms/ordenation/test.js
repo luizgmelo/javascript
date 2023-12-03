@@ -5,6 +5,7 @@ import { mergeSort } from './merge-sort.js';
 import { quickSort } from './quick-sort.js';
 import { countingSort } from './counting-sort.js';
 import { bucketSort } from './bucket-sort.js';
+import { radixSort } from './radix-sort.js';
 
 function createNonSortedArray(size) {
   const array = [];
@@ -16,6 +17,6 @@ function createNonSortedArray(size) {
 
 let array = createNonSortedArray(5);
 console.log(array.join());
-array = bucketSort(array);
+array = radixSort(array);
 console.log(array.join());
 
