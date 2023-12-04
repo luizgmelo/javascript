@@ -12,4 +12,8 @@ const initializeColor = vertices => {
   return color;
 }
 
-export { Colors, initializeColor }
+function defaultEquals(a, b) {
+  return a === b ? true : false
+}
+
+export { Colors, initializeColor, defaultEquals }
