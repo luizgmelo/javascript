@@ -10,6 +10,24 @@ function defaultCompare(a, b) {
   else return 1;
 }
 
+function defaultEquals(a, b) {
+  return a === b
+}
+
+function defaultDiff(a, b) {
+  return Number(a) - Number(b);
+}
+
+function biggerOrEquals(a, b, compareFn) {
+  const comp = compareFn(a, b);
+  return comp === Compare.BIGGER_THAN || Compare.EQUALS;
+}
+
+function lowerOrEquals(a, b, compareFn) {
+  const comp = compareFn(a, b);
+  return comp === Compare.LOWER_THAN || Compare.EQUALS;
+}
+
 function swap(array, a, b) {
   [array[a], array[b]] = [array[b], array[a]];
 }
@@ -34,5 +52,6 @@ function findMaxValue(array) {
   return max;
 }
 
-export { Compare, swap, defaultCompare, findMinValue, findMaxValue }
+export { Compare, swap, defaultCompare, defaultEquals, defaultDiff, findMinValue, findMaxValue }
+export { lowerOrEquals, biggerOrEquals } 
 
