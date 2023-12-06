@@ -16,4 +16,8 @@ function defaultEquals(a, b) {
   return a === b ? true : false
 }
 
-export { Colors, initializeColor, defaultEquals }
+function swap(array, a, b) {
+  return [array[a], array[b]] = [array[b], array[a]]
+}
+
+export { Colors, initializeColor, defaultEquals, swap }
